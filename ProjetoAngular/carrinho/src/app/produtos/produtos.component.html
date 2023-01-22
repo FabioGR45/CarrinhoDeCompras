@@ -1,0 +1,22 @@
+<mat-toolbar class="header">
+    <img src="./../assets/logo.png" alt="" width="300px" class="header-logo">
+    <span class="header-button">
+        <span class="span-gap"><a routerLink="/inserir-produto" routerLinkActive="active" class="header-button-link">Add Product</a></span>
+        <span class="span-gap"><a routerLink="/usuarios" routerLinkActive="active" class="header-button-link">Users</a></span>
+        <span class="span-gap"><button mat-button (click)="logoff()" class="header-button-exit">Exit</button></span>
+    </span>
+</mat-toolbar>
+
+<div class="buttons">
+    <button mat-button style="color: #fff;" class="btn-add-product" routerLink="/inserir-produto">Add Product</button>
+    <button mat-button style="color: #fff;" class="btn-shopping-cart" routerLink="/carrinho">Shopping Cart</button>
+    </div>
+
+<li *ngFor="let produto of produtos">
+    <!-- ID: {{ produto.id }} - NOME:  -->
+    <a routerLink = "/produto-detalhe/{{produto.id}}">
+    {{ produto.nome }}
+    </a>
+</li>
+
+<router-outlet></router-outlet>

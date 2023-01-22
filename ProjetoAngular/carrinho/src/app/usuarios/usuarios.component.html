@@ -1,0 +1,67 @@
+<mat-toolbar class="header">
+    <img src="./../assets/logo.png" alt="" width="300px" class="header-logo">
+    <span class="header-button">
+        <span class="span-gap"><a routerLink="/usuario/novo" routerLinkActive="active" class="header-button-link">Add User</a></span>
+        <span class="span-gap"><a routerLink="/produtos" routerLinkActive="active" class="header-button-link">Products</a></span>
+        <span class="span-gap"><button mat-button (click)="logoff()" class="header-button-exit">Exit</button></span>
+    </span>
+    <!-- <span class="header-text">AllGames</span>
+    <span class="header-text">AllGames</span> -->
+</mat-toolbar>
+
+
+<!-- Coluna pesquisa usuario -->
+
+<section>
+    <form (ngSubmit)="buscaUsuarios()">
+        <mat-form-field appearance="fill">
+            <input matInput placeholder="Enter the user" [formControl]="busca" required />
+        </mat-form-field>
+        <button mat-button class="btn-search-user" style="color:#fff;;">Search User</button>
+    </form>
+    
+    <table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
+
+        <!-- Coluna Id -->
+        <ng-container matColumnDef="Id">
+            <th mat-header-cell *matHeaderCellDef="Id">Id</th>
+            <td mat-cell *matCellDef="let usuario">{{ usuario.id }}</td>
+        </ng-container>
+
+        <!-- Coluna Nome -->
+        <ng-container matColumnDef="Nome">
+            <th mat-header-cell *matHeaderCellDef="Nome">Nome</th>
+            <td mat-cell *matCellDef="let usuario">{{ usuario.nome }}</td>
+        </ng-container>
+
+        <!-- Coluna Detalhes -->
+        <ng-container matColumnDef="Ver">
+            <th mat-header-cell *matHeaderCellDef>Ver</th>
+            <td mat-cell *matCellDef="let usuario">
+                <button mat-button routerLink="/usuario-detalhe/{{ usuario.id }}">Detalhes</button>
+            </td>
+        </ng-container>
+
+        <!-- Coluna Editar usuarios -->
+        <ng-container matColumnDef="Editar">
+            <th mat-header-cell *matHeaderCellDef>Editar</th>
+            <td mat-cell *matCellDef="let usuario">
+                <button mat-button routerLink="/usuario/editar/{{ usuario.id }}">Editar</button>
+            </td>
+        </ng-container>
+
+        <!-- Coluna Remover usuarios -->
+        <ng-container matColumnDef="Remover">
+            <th mat-header-cell *matHeaderCellDef>Remover</th>
+            <td mat-cell *matCellDef="let usuario">
+                <button mat-button (click)="removerUsuario(usuario)">Remover</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="colunasExibidas" ></tr>
+        <tr mat-row *matRowDef="let row; columns: colunasExibidas;"></tr>
+
+    </table>
+
+    <router-outlet></router-outlet>
+</section>

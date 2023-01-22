@@ -1,0 +1,11 @@
+
+<mat-toolbar class="header">
+    <img src="./../assets/logo.png" alt="" width="300px" class="header-logo">
+    <span class="header-button">
+        <span class="span-gap"><a routerLink="/usuarios" routerLinkActive="active" class="header-button-link">Users</a></span>
+        <span class="span-gap"><a routerLink="/produtos" routerLinkActive="active" class="header-button-link">Products</a></span>
+        <span class="span-gap"><button mat-button (click)="logoff()" class="header-button-exit">Exit</button></span>
+    </span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

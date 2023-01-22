@@ -1,0 +1,36 @@
+<section class="section-form-addproduct">
+  <div class="bg-form-addproduct">
+    <p>Add Product</p>
+    <form (ngSubmit)="insereProduto()">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Product ID</mat-label>
+        <input matInput placeholder="-" [formControl]="id" required />
+        <mat-error *ngIf="id.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="t-shirt" [formControl]="nome" required />
+        <mat-error *ngIf="nome.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Product Price</mat-label>
+        <input matInput placeholder="10" [formControl]="preco" required />
+        <mat-error *ngIf="preco.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Product Quantity</mat-label>
+        <input matInput placeholder="1" [formControl]="quantidade" required />
+        <mat-error *ngIf="quantidade.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+
+      <div class="buttons">
+        <button mat-button style="color: #fff;" class="btn-save-product">Save Product</button>
+        <button mat-button routerLink="/produtos" class="btn-product-list" style="color: #fff;">Product List</button>
+      </div>
+    </form>
+  </div>
+</section>

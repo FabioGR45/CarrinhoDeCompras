@@ -1,0 +1,33 @@
+<section class="section-form-adduser">
+  <div class="bg-form-adduser">
+
+    <p>Add User</p>
+    <form (ngSubmit)="insereUsuario()">
+
+      <mat-form-field appearance="fill" class="box-form">
+        <label>User ID</label>
+        <input matInput placeholder="-" [formControl]="id" id="label-id" required />
+        <mat-error *ngIf="id.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill" class="box-form">
+        <!-- <label class="label">Entre com seu nome</label> -->
+        <input matInput placeholder="Enter your name" [formControl]="nome" required />
+        <mat-error *ngIf="nome.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill" class="box-form">
+        <!-- <label class="label">Entre com seu email</label> -->
+        <input matInput placeholder="pat@example.com" [formControl]="email" required />
+        <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <div class="buttons">
+        <button mat-button style="color: #fff;" class="btn-save-user">Save User</button>
+        <button mat-button routerLink="/usuarios" class="btn-user-list" style="color: #fff;">User List</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+
+

@@ -1,0 +1,20 @@
+<main>
+    <section>
+        <p class="title-product-details">Product Details</p>
+        <div>
+            <span class="span-container">
+                ID: <span class="result-product-detail">{{ produto.id }}</span>
+            </span>
+            <span class="span-container">
+                Name: <span class="result-product-detail">{{ produto.nome }}</span>
+            </span>
+            <span class="span-container">
+                Price: <span class="result-product-detail">{{ produto.preco }}</span>
+            </span>
+            <span class="span-container">
+                Quantity: <span class="result-product-detail">{{ produto.quantidade }}</span>
+            </span>
+        </div>
+        <button mat-button style="color: #FFFF;" routerLink="/produtos">Product List</button>
+    </section>
+</main>

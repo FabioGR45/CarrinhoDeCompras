@@ -1,0 +1,25 @@
+
+<mat-toolbar class="header">
+    <img src="./../assets/logo.png" alt="" width="300px" class="header-logo">
+</mat-toolbar>
+
+<section class="section-form-login">
+    <div class="bg-form-login">
+        <p>Welcome Back!</p>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-field">
+                <label for="email">Email</label>
+                <input type="text" id="email" formControlName="email"/>
+            </div>
+        
+            <div class="form-field">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" formControlName="senha"/>
+            </div>
+        
+            <button type="submit">Sign In</button>
+        </form>
+        <span class="text-signup">
+            Not have an account yet? <a routerLink="/cadastro" routerLinkActive="active">Sign Up</a></span>
+    </div>
+</section>
